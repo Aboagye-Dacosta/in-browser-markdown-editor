@@ -44,18 +44,18 @@ const StyledButton = styled(Button)`
   display: none;
 
   @media screen and (min-width: 56.25em) {
-    display: block;
+    display: flex;
     border-radius: 0 !important;
     padding: 1rem 2rem;
-
+    justify-content: center;
+    align-items: center;
+    
     & .theme-btn {
       width: 4rem;
       height: 4rem;
       border-radius: 2rem;
       box-shadow: var(--shadow-sm);
       display: flex;
-      justify-content: center;
-      align-items: center;
     }
   }
 `;

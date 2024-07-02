@@ -1,11 +1,11 @@
 import styled from "styled-components";
+import { File } from "../../entities";
 import { generateDate } from "../../helpers/utils";
 import { useFiles } from "../../hooks/useFiles";
 import { useAppDispatch } from "../../store/hooks";
 import { activate } from "../../store/slice/appStateSlice";
 import { addFileToOpenedFiles } from "../../store/slice/filesSlice";
-import Spinner from "../../ui/Spinner";
-import { File } from "../../entities";
+import SpinnerSm from "../../ui/SpinnerSm";
 
 const StyledRecentList = styled.div`
   display: flex;
@@ -19,7 +19,6 @@ const StyledRecentList = styled.div`
     align-items: start;
   }
 `;
-
 
 const StyledRecentListItem = styled.div`
   display: flex;
@@ -35,7 +34,13 @@ const StyledRecentListItem = styled.div`
   }
 `;
 
-export function RecentListItem({ recent ,handler}: { recent: File ,handler?():void}) {
+export function RecentListItem({
+  recent,
+  handler,
+}: {
+  recent: File;
+  handler?(): void;
+}) {
   const dispatch = useAppDispatch();
 
   return (
@@ -44,8 +49,8 @@ export function RecentListItem({ recent ,handler}: { recent: File ,handler?():vo
       onClick={() => {
         dispatch(addFileToOpenedFiles(recent));
         dispatch(activate());
-        if(handler){
-          handler()
+        if (handler) {
+          handler();
         }
       }}
     >
@@ -61,7 +66,7 @@ export default function HomeRecentList() {
   return (
     <>
       {isPending ? (
-        <Spinner />
+        <SpinnerSm />
       ) : (
         <StyledRecentList>
           {files?.length == 0 ? (

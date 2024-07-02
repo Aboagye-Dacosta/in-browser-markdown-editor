@@ -1,9 +1,9 @@
 import styled from "styled-components";
+import { File } from "../entities";
 import { RecentListItem } from "../features/home/HomeRecentList";
 import { useFiles } from "../hooks/useFiles";
 import Heading from "./Heading";
-import Spinner from "./Spinner";
-import { File } from "../entities";
+import SpinnerSm from "./SpinnerSm";
 
 const StyledAllRecentFiles = styled.div`
   width: 30rem;
@@ -27,7 +27,7 @@ export default function AllRecentFiles({
     <StyledAllRecentFiles>
       <Heading as="h3">All Recent Files</Heading>
       {isPending ? (
-        <Spinner />
+        <SpinnerSm />
       ) : (
         <div>
           {files?.length == 0 ? (
@@ -38,7 +38,11 @@ export default function AllRecentFiles({
               ?.toReversed()
               .slice(0, 3)
               ?.map((recent: File) => (
-                <RecentListItem key={recent.fileId} recent={recent} handler={closeModal} />
+                <RecentListItem
+                  key={recent.fileId}
+                  recent={recent}
+                  handler={closeModal}
+                />
               ))
           )}
         </div>
