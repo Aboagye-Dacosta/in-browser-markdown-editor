@@ -1,11 +1,8 @@
-//@ts-expect-error correct
+import { File } from "../entities";
 const BASE_URL = import.meta.env.VITE_BASE_URL;
- 
-
-import { FileType } from "./type";
 
 
-export async function apiCreateFile({ pathName, fileId, content, createdAt }: FileType) {
+export async function apiCreateFile({ pathName, fileId, content, createdAt }: File) {
   const response = await fetch(`${BASE_URL}/files`, {
     method: "POST",
     headers: {
@@ -31,7 +28,7 @@ export async function apiGetFiles() {
   return response.json();
 }
 
-export async function apiDeleteFile(file: FileType) {
+export async function apiDeleteFile(file: File) {
   const response = await fetch(`${BASE_URL}/files/${file.fileId}`, {
     method: "Delete",
     headers: {
@@ -47,7 +44,7 @@ export async function apiDeleteFile(file: FileType) {
   return response.json();
 }
 
-export async function apiUpdateFile(file: FileType) {
+export async function apiUpdateFile(file: File) {
   const response = await fetch(`${BASE_URL}/files/${file.fileId}`, {
     method: "Put",
     body: JSON.stringify(file),

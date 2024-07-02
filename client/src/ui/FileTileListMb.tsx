@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import styled from "styled-components";
-import { FileType } from "../store/slice/filesSlice";
+import { File } from "../entities";
 
 const StyledFileTileListMb = styled.div`
   display: flex;
@@ -17,8 +17,8 @@ export default function FileTileListMb({
   render,
   files,
 }: {
-  files: FileType[];
-  render(file: FileType): ReactNode;
+  files: File[];
+  render(file: File): ReactNode;
 }) {
   return (
     <StyledFileTileListMb>

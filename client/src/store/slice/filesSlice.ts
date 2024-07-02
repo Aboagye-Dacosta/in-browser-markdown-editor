@@ -1,21 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { RootState } from "../rootReducer";
+import { File } from "../../entities";
+import { RootState } from "../store";
 
 
-export type FileType = {
-    pathName: string;
-    fileId: string;
-    content: string;
-    createdAt: string;
-}
 
 
 const initialState: {
-    openedFiles: FileType[];
-    current: FileType;
+    openedFiles: File[];
+    current: File;
 } = {
     openedFiles: [],
-    current: {} as FileType,
+    current: {} as File,
 }
 
 const files = createSlice({
@@ -52,13 +47,13 @@ const files = createSlice({
             return {
                 ...state,
                 current: action.payload,
-                openedFiles: isPresent ? state.openedFiles : [...updatedFiles, action.payload as FileType],
+                openedFiles: isPresent ? state.openedFiles : [...updatedFiles, action.payload as File],
             }
         },
         removeFileFromOpenedFiles(state, action) {
             const index = state.openedFiles.findIndex(file => file.fileId == action.payload.fileId);
             const openedFiles = state.openedFiles.filter((file,) => file.fileId !== action.payload.fileId);
-            const value = openedFiles.length > 0 ? openedFiles[Math.max(0, index - 1)] : {} as FileType;
+            const value = openedFiles.length > 0 ? openedFiles[Math.max(0, index - 1)] : {} as File;
 
             return {
                 ...state,

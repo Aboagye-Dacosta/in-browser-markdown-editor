@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { RecentListItem } from "../features/home/HomeRecentList";
-import { FileType } from "../helpers/type";
 import { useFiles } from "../hooks/useFiles";
 import Heading from "./Heading";
 import Spinner from "./Spinner";
+import { File } from "../entities";
 
 const StyledAllRecentFiles = styled.div`
   width: 30rem;
@@ -37,7 +37,7 @@ export default function AllRecentFiles({
               //@ts-expect-error function is available
               ?.toReversed()
               .slice(0, 3)
-              ?.map((recent: FileType) => (
+              ?.map((recent: File) => (
                 <RecentListItem key={recent.fileId} recent={recent} handler={closeModal} />
               ))
           )}

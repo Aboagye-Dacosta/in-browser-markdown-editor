@@ -5,12 +5,13 @@ import { v4 as uuidv4 } from "uuid";
 import { useNewFile } from "../hooks/useNewFile";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { activate, getLifecycle } from "../store/slice/appStateSlice";
-import { FileType, addFileToOpenedFiles } from "../store/slice/filesSlice";
+import { addFileToOpenedFiles } from "../store/slice/filesSlice";
 import Button from "./Button";
 import Input from "./Input";
 import SpinnerSm from "./SpinnerSm";
 
 import data from "../data.json";
+import { File } from "../entities";
 
 const StyledNewFileForm = styled.div`
   padding: 2rem 0 0 0;
@@ -40,7 +41,7 @@ export default function NewFileForm({ closeModal }: { closeModal?(): void }) {
 
   const fileId = uuidv4();
 
-  const file: FileType = {
+  const file: File = {
     fileId,
     //@ts-expect-error function exists on strings
     pathName: `${fileName}.md`.replaceAll(" ","_"),

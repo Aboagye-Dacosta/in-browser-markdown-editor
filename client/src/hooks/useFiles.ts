@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { apiGetFiles } from "../helpers/apiFiles";
-import { FileType } from "../helpers/type";
+import { File } from "../entities";
 
 export function useFiles() {
 
-    const { data, isPending, error } = useQuery<FileType[]>({
+    const { data, isPending, error } = useQuery<File[]>({
         queryKey: ["files"],
         queryFn: apiGetFiles
     })

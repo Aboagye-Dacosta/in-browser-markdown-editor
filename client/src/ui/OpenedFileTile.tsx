@@ -2,11 +2,11 @@ import styled from "styled-components";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { init } from "../store/slice/appStateSlice";
 import {
-  FileType,
   openFile,
   removeFileFromOpenedFiles,
 } from "../store/slice/filesSlice";
 import ThemeModeIcon from "./ThemeModeIcon";
+import { File } from "../entities";
 
 const StyledOpenedFileTile = styled.div`
   display: flex;
@@ -55,7 +55,7 @@ export default function OpenedFileTile({
   file,
   isCurrent,
 }: {
-  file: FileType;
+  file: File;
   isCurrent: boolean;
 }) {
   const dispatch = useAppDispatch();

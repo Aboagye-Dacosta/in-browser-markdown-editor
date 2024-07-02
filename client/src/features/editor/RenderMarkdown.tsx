@@ -11,7 +11,6 @@ import {
 import { StyledButton, StyledComposeHeader } from "./EditorComposeMarkdown";
 import ParsedHtml from "./ParsedHtml";
 
-// import "../../styles/markdown.css";
 
 const StyledRenderMarkdown = styled.div`
   flex: 1;

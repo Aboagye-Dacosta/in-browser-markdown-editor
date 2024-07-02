@@ -3,8 +3,9 @@ import { generateDate } from "../../helpers/utils";
 import { useFiles } from "../../hooks/useFiles";
 import { useAppDispatch } from "../../store/hooks";
 import { activate } from "../../store/slice/appStateSlice";
-import { addFileToOpenedFiles, FileType } from "../../store/slice/filesSlice";
+import { addFileToOpenedFiles } from "../../store/slice/filesSlice";
 import Spinner from "../../ui/Spinner";
+import { File } from "../../entities";
 
 const StyledRecentList = styled.div`
   display: flex;
@@ -34,11 +35,12 @@ const StyledRecentListItem = styled.div`
   }
 `;
 
-export function RecentListItem({ recent ,handler}: { recent: FileType ,handler?():void}) {
+export function RecentListItem({ recent ,handler}: { recent: File ,handler?():void}) {
   const dispatch = useAppDispatch();
 
   return (
     <StyledRecentListItem
+      role="button"
       onClick={() => {
         dispatch(addFileToOpenedFiles(recent));
         dispatch(activate());
@@ -69,7 +71,7 @@ export default function HomeRecentList() {
               //@ts-expect-error function is available
               ?.toReversed()
               .slice(0, 3)
-              ?.map((recent: FileType) => (
+              ?.map((recent: File) => (
                 <RecentListItem key={recent.fileId} recent={recent} />
               ))
           )}

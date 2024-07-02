@@ -87,9 +87,7 @@ export const StyledButton = styled.button`
   }
 `;
 
-//@ts-expect-error correct
 const BASE_URL = import.meta.env.VITE_BASE_URL;
- 
 
 export default function EditorComposeMarkdown() {
   const ref = useRef<HTMLTextAreaElement>(null);
