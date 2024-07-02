@@ -1,5 +1,5 @@
 import { PropsWithChildren } from "react";
- 
+import PrimeReactComponentsProvider from "./PrimeReactComponentsProvider";
 import ReactQueryProvider from "./ReactQueryProvider";
 import ReduxStoreProvider from "./ReduxStoreProvider";
 import ThemeProvider from "./ThemeProvider";
