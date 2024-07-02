@@ -17,6 +17,7 @@ A cool in-browser markdown editor
 
 1. Clone the repository: [in-browser-markdown-editor](https://github.com/Aboagye-Dacosta/in-browser-markdown-editor)
 2. Install dependencies.
+3. visit [here](https://in-browser-markdown-editor-app.vercel.app/) to see it live
 
 ## Author
 
