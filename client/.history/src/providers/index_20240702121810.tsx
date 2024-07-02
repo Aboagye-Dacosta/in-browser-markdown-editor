@@ -1,5 +1,3 @@
-import { PropsWithChildren } from "react";
-
 import CustomToaster from "../ui/CustomToaster";
 import ReactQueryProvider from "./ReactQueryProvider";
 import ReduxStoreProvider from "./ReduxStoreProvider";
